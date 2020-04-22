@@ -31,4 +31,9 @@ public class WebSocketWrapper {
         delegate.onWebSocketClose(session, statusCode, reason);
     }
 
+    @OnWebSocketError
+    public void onWebSocketError(Session session, Throwable error) {
+        delegate.onWebSocketError(session, error);
+    }
+
 }

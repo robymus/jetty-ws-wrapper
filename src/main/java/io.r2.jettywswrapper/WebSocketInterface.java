@@ -15,4 +15,6 @@ public interface WebSocketInterface {
 
     void onWebSocketClose(Session session, int statusCode, String reason);
 
+    void onWebSocketError(Session session, Throwable error);
+
 }
