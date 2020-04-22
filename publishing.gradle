@@ -1,0 +1,57 @@
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = 'jetty-ws-wrapper'            
+            from components.java
+
+            pom {
+                name = 'Jetty Websocket Interface Wrapper'
+                description = 'A simple wrapper to use Jetty websocket client without annotation support (eg. from jython).'
+                licenses {
+                    license {
+                        name = 'Unlicense'
+                        url = 'https://unlicense.org'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:https://github.com/robymus/jetty-ws-wrapper.git'
+                    developerConnection = 'scm:git:git@github.com:robymus/jetty-ws-wrapper.git'
+                    url = 'https://github.com/robymus/jetty-ws-wrapper'
+                }            
+                developers {
+                    developer {
+                        id = 'robymus'
+                        name = 'Robert Elek'
+                        email = 'r@r2.io'
+                    }
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            credentials {
+                username = ossrhUsername
+                password = ossrhPassword
+            }            
+            def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+            def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.mavenJava
+}
+
+
+javadoc {
+    if(JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption('html5', true)
+    }
+}

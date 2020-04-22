@@ -1,0 +1,22 @@
+apply plugin: 'java'
+apply from:   'publishing.gradle'
+
+group = 'io.r2'
+version = '0.1'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation 'org.eclipse.jetty.websocket:websocket-api:9.0.3.v20130506'
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
