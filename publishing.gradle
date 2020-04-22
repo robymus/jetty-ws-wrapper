@@ -10,6 +10,7 @@ publishing {
             pom {
                 name = 'Jetty Websocket Interface Wrapper'
                 description = 'A simple wrapper to use Jetty websocket client without annotation support (eg. from jython).'
+                url = 'https://github.com/robymus/jetty-ws-wrapper'
                 licenses {
                     license {
                         name = 'Unlicense'

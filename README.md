@@ -1,4 +1,4 @@
-# jetty-ws-interface-wrapper
+# jetty-ws-wrapper
 
 Simple hack to use jetty websocket client from jython.
 
@@ -19,3 +19,7 @@ That's it, this is a just patch for a legacy jython code, so it's not nice.
 ## Advanced usage
 
 Just in case, maybe needed in the future, the `WebSocketWrapperAdv` class wraps a `WebSocketInterfaceAdv`, exposing all events and binary messages as well.
+
+## Repository
+
+Available in maven central as `io.r2:jetty-ws-wrapper`.
